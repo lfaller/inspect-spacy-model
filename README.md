@@ -290,7 +290,7 @@ inspect-spacy-model/
 ├── README.md                  # This file
 ├── requirements.txt           # Runtime dependencies
 ├── requirements-dev.txt       # Development dependencies
-├── pyproject.toml            # Tool configuration (black, isort, mypy)
+├── pyproject.toml            # Tool configuration (black, isort)
 ├── .flake8                   # Flake8 linting configuration
 ├── Makefile                  # Development commands
 ├── .github/
@@ -333,7 +333,6 @@ This project uses several tools to maintain code quality:
 - **[Black](https://black.readthedocs.io/)**: Code formatting
 - **[isort](https://isort.readthedocs.io/)**: Import sorting
 - **[flake8](https://flake8.pycqa.org/)**: Linting and style checking
-- **[mypy](https://mypy.readthedocs.io/)**: Static type checking
 
 ### Manual Commands
 
@@ -346,9 +345,6 @@ isort .
 
 # Lint code
 flake8 .
-
-# Type check
-mypy .
 ```
 
 ## 🤝 Contributing
