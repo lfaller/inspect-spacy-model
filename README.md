@@ -19,6 +19,60 @@ This tool provides detailed insights into spaCy models after you download them, 
 
 ## 📦 Installation
 
+### Option 1: Using Virtual Environment (Recommended)
+
+1. **Clone this repository:**
+   ```bash
+   git clone https://github.com/yourusername/inspect-spacy-model.git
+   cd inspect-spacy-model
+   ```
+
+2. **Create and activate a virtual environment:**
+   
+   **Using venv (Python 3.3+):**
+   ```bash
+   # Create virtual environment
+   python -m venv spacy-env
+   
+   # Activate it
+   # On macOS/Linux:
+   source spacy-env/bin/activate
+   # On Windows:
+   spacy-env\Scripts\activate
+   ```
+   
+   **Using conda:**
+   ```bash
+   # Create virtual environment
+   conda create -n spacy-env python=3.11
+   
+   # Activate it
+   conda activate spacy-env
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Download a spaCy model:**
+   ```bash
+   python -m spacy download en_core_web_sm
+   ```
+
+5. **When you're done, deactivate the environment:**
+   ```bash
+   # For venv:
+   deactivate
+   
+   # For conda:
+   conda deactivate
+   ```
+
+### Option 2: System-wide Installation
+
+⚠️ **Note:** This installs spaCy globally on your system. We recommend using a virtual environment instead.
+
 1. **Clone this repository:**
    ```bash
    git clone https://github.com/yourusername/inspect-spacy-model.git
@@ -30,7 +84,7 @@ This tool provides detailed insights into spaCy models after you download them, 
    pip install spacy
    ```
 
-3. **Download a spaCy model** (if you haven't already):
+3. **Download a spaCy model:**
    ```bash
    python -m spacy download en_core_web_sm
    ```
@@ -39,11 +93,36 @@ This tool provides detailed insights into spaCy models after you download them, 
 
 ### Basic Usage
 
+**Make sure your virtual environment is activated first:**
+```bash
+# Activate your environment
+source spacy-env/bin/activate  # macOS/Linux
+# or
+spacy-env\Scripts\activate     # Windows
+```
+
+**Then run the inspector:**
 ```bash
 python inspect_spacy_model.py
 ```
 
 This will inspect the default `en_core_web_sm` model.
+
+### Advanced Usage
+
+```bash
+# List all installed models
+python inspect_spacy_model.py --list
+
+# Inspect a specific model
+python inspect_spacy_model.py en_core_web_md
+
+# Get detailed information
+python inspect_spacy_model.py en_core_web_lg --verbose
+
+# Get help
+python inspect_spacy_model.py --help
+```
 
 ### Example Output
 
@@ -115,7 +194,38 @@ Then run:
 python inspect_spacy_model.py en_core_web_lg
 ```
 
-## 🤔 Why Use This?
+## 🧪 Quick Start Example
+
+Here's a complete example from start to finish:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/yourusername/inspect-spacy-model.git
+cd inspect-spacy-model
+
+# 2. Create virtual environment
+python -m venv spacy-env
+
+# 3. Activate it
+source spacy-env/bin/activate  # macOS/Linux
+# or spacy-env\Scripts\activate  # Windows
+
+# 4. Install dependencies
+pip install -r requirements.txt
+
+# 5. Download a model
+python -m spacy download en_core_web_sm
+
+# 6. Run the inspector
+python inspect_spacy_model.py
+
+# 7. Try different options
+python inspect_spacy_model.py --list
+python inspect_spacy_model.py en_core_web_sm --verbose
+
+# 8. When done, deactivate
+deactivate
+```
 
 - **🔍 Understanding**: See exactly what you downloaded and where it lives
 - **🐛 Debugging**: Verify model installation and components
@@ -126,8 +236,51 @@ python inspect_spacy_model.py en_core_web_lg
 ## 🛠️ Requirements
 
 - Python 3.7+
+- Virtual environment (recommended)
 - spaCy 3.0+
 - At least one downloaded spaCy model
+
+## 💡 Virtual Environment Best Practices
+
+### Why Use a Virtual Environment?
+
+- **Isolation**: Keeps project dependencies separate from your system Python
+- **Reproducibility**: Ensures consistent environments across different machines
+- **Safety**: Prevents conflicts with other Python projects
+- **Cleanliness**: Easy to remove by just deleting the environment folder
+
+### Managing Your Environment
+
+**To reactivate your environment later:**
+```bash
+# For venv:
+source spacy-env/bin/activate  # macOS/Linux
+spacy-env\Scripts\activate     # Windows
+
+# For conda:
+conda activate spacy-env
+```
+
+**To check if your environment is active:**
+```bash
+which python  # Should show path to your virtual environment
+python -c "import sys; print(sys.prefix)"  # Should show virtual env path
+```
+
+**To see installed packages in your environment:**
+```bash
+pip list
+```
+
+**To remove the environment when no longer needed:**
+```bash
+# For venv:
+rm -rf spacy-env  # macOS/Linux
+rmdir /s spacy-env  # Windows
+
+# For conda:
+conda env remove -n spacy-env
+```
 
 ## 📁 Project Structure
 
