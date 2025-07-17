@@ -286,16 +286,95 @@ conda env remove -n spacy-env
 
 ```
 inspect-spacy-model/
-├── inspect_spacy_model.py  # Main inspection script
-├── README.md              # This file
-├── requirements.txt       # Python dependencies
-├── .gitignore            # Git ignore patterns
-└── LICENSE               # MIT License
+├── inspect_spacy_model.py     # Main inspection script
+├── README.md                  # This file
+├── requirements.txt           # Runtime dependencies
+├── requirements-dev.txt       # Development dependencies
+├── pyproject.toml            # Tool configuration (black, isort, mypy)
+├── .flake8                   # Flake8 linting configuration
+├── Makefile                  # Development commands
+├── .github/
+│   └── workflows/
+│       └── ci.yml            # GitHub Actions CI/CD
+├── .gitignore               # Git ignore patterns
+└── LICENSE                  # MIT License
+```
+
+## 🛠️ Development
+
+### Setting Up for Development
+
+If you want to contribute or modify the code:
+
+1. **Install development dependencies:**
+   ```bash
+   pip install -r requirements-dev.txt
+   ```
+
+2. **Run code quality checks:**
+   ```bash
+   # Format code
+   make format
+
+   # Run linting
+   make lint
+
+   # Type checking
+   make type-check
+
+   # Run all checks
+   make check
+   ```
+
+### Code Quality Tools
+
+This project uses several tools to maintain code quality:
+
+- **[Black](https://black.readthedocs.io/)**: Code formatting
+- **[isort](https://isort.readthedocs.io/)**: Import sorting
+- **[flake8](https://flake8.pycqa.org/)**: Linting and style checking
+- **[mypy](https://mypy.readthedocs.io/)**: Static type checking
+
+### Manual Commands
+
+If you don't have `make` available:
+
+```bash
+# Format code
+black .
+isort .
+
+# Lint code
+flake8 .
+
+# Type check
+mypy .
 ```
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to:
+## 🤝 Contributing
+
+Contributions are welcome! To contribute:
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature-name`
+3. **Install development dependencies**: `pip install -r requirements-dev.txt`
+4. **Make your changes**
+5. **Run code quality checks**: `make check`
+6. **Commit your changes**: `git commit -am 'Add some feature'`
+7. **Push to the branch**: `git push origin feature-name`
+8. **Submit a pull request**
+
+### Contribution Guidelines
+
+- Follow the existing code style (enforced by black and flake8)
+- Add type hints for new functions
+- Update documentation if needed
+- Ensure all linting checks pass
+- Test your changes with different spaCy models
+
+Feel free to:
 
 - Add support for more model types
 - Improve the output formatting
