@@ -349,8 +349,6 @@ flake8 .
 
 ## 🤝 Contributing
 
-## 🤝 Contributing
-
 Contributions are welcome! To contribute:
 
 1. **Fork the repository**
